@@ -1,0 +1,84 @@
+<!-- class: contactPaginationLwcCtrl.cls -->
+<template>
+   
+    <template if:true={loaderSpinner}>
+        <lightning-spinner variant="brand" alternative-text="Loading..." size="medium"></lightning-spinner>
+    </template>
+
+    <div class="slds-box slds-theme_default">
+        <lightning-card title="Contact Record" icon-name="custom:custom77">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset slds-text-title_caps">
+                        <th class="slds-is-resizable" scope="col">
+                            <div class="slds-truncate" title="Name"> Name </div>
+                        </th>
+                   
+                        <th class="slds-is-resizable" scope="col">
+                            <div class="slds-truncate" title="First Name"> First Name</div>
+                        </th>
+                        <th class="slds-is-resizable" scope="col">
+                            <div class="slds-truncate" title="email"> Email </div>
+                        </th>
+                        <th class="slds-is-resizable" scope="col">
+                            <div class="slds-truncate" title="Phone"> Phone</div>
+                        </th>
+                        <th class="slds-is-resizable" scope="col">
+                            <div class="slds-truncate" title="Title"> Title </div>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <template if:true={contacts}>
+                        <template for:each={contacts} for:item="conItem">
+                            <tr key={conItem.Id}>
+                                <th data-label="Name">
+                                    <div class="slds-truncate" title={conItem.Name}>{conItem.Name}</div>
+                                </th>
+                            
+                                <th data-label="First Name">
+                                    <div class="slds-truncate" title={conItem.FirstName}>{conItem.FirstName}</div>
+                                </th>
+                            
+                                <th data-label="Email">
+                                    <div class="slds-truncate" title={conItem.Email}>{conItem.Email}</div>
+                                </th>
+                          
+                                <th data-label="Phone">
+                                    <div class="slds-truncate" title={conItem.Phone}>{conItem.Phone}</div>
+                                </th>
+                                
+                                <th data-label="Title"> 
+                                    <div class="slds-truncate" title={conItem.Title}>{conItem.Title}</div>
+                                </th>
+                            </tr>
+                        </template>
+                    </template>
+                </tbody>
+
+            </table>
+
+                <br> <br>
+
+            <div class="slds-align_absolute-center">
+                <div class="slds-p-right_xx-small">
+                    <lightning-button label="Previous" disabled={isPrev} variant="brand" onclick={handlePagePrevAction} 
+                    icon-name="utility:back" class="slds-m-left_x-small" name="prev"> </lightning-button>
+                </div>
+            
+                <span class="slds-badge slds-badge_lightest">
+                    {recordStart} - {recordEnd} of {totalRecords} || Page {pageNumber} of {totalPages}
+                </span>
+            
+                <div class="slds-p-left__xx-small">
+                    <lightning-button label="Next" disabled={isNext} variant="brand" onclick={handlePageNextAction} 
+                    icon-name="utility:forward" class="slds-m-right_x-small" name="next"></lightning-button>
+                </div>
+            </div>
+
+
+        </lightning-card>
+    </div>
+</template>
+

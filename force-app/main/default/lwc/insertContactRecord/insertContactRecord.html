@@ -1,0 +1,39 @@
+<!-- no class -->
+<template>
+    <lightning-card title="Create contact records" icon-name="custom:custom66">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input type="text" label="First Name" value={firstName} onchange={contactChangeVal}>
+                    </lightning-input>
+                </div>
+            </div>
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input type="text" label="Last Name" value={lastName} onchange={contactChangeVal}>
+                    </lightning-input>
+                </div>
+            </div>
+            <div class="slds-p-horizontal--small slds-col slds-size_4-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input type="number" label="Phone" value={phoneNo} onchange={contactChangeVal}>
+                    </lightning-input>
+                </div>
+            </div>
+            <div class="slds-p-horizontal--small slds-col slds-size_4-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input type="email" label="Email" value={emailId} onchange={contactChangeVal}>
+                    </lightning-input>
+                </div>
+            </div>
+            <div class="slds-p-horizontal--small slds-col slds-size_4-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input type="text" label="Department" value={departmentVal} onchange={contactChangeVal}>
+                    </lightning-input>
+                </div>
+            </div>
+            <lightning-button variant="brand" label="Save" title="Save contact" onclick={insertContactAction}
+                class="slds-align_absolute-center"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

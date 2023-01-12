@@ -1,0 +1,19 @@
+.THIS h2{
+    color: red;
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: 500;
+}
+.THIS h2 span{
+    color: green;
+}
+.bgclr.cFormQuickContact {
+    background-color:rgb(197, 199, 206);
+    padding: 20px;
+}
+.THIS lightning-input.slds-form-element_stacked.slds-form-element {
+    text-align: left;
+    font-size: 14px;
+    color: black;
+
+}

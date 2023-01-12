@@ -1,0 +1,90 @@
+<!-- class: CompanyFormHelper.cls -->
+<template>
+    <!-- Record create Form start -->
+    <lightning-card title="Company Informations" icon-name="custom:custom84" style="color:rgb(6, 110, 6);">
+        <lightning-layout>
+            <lightning-layout-item size="5">
+                <div class="slds-p-around_medium label_style">
+                    <lightning-input type="text" label="Enter Company Name" placeholder="type here..." required=""
+                        onchange={onhandlechange}></lightning-input>
+                    <lightning-input type="text" label="Enter Company Location" placeholder="type here..."
+                        onchange={onhandlechange}></lightning-input>
+                    <lightning-input type="email" label="Enter Email Id" placeholder="type here..."
+                        onchange={onhandlechange}></lightning-input>
+                    <lightning-textarea name="input3" label="Enter Company Address" placeholder="type here..."
+                        onchange={onhandlechange}></lightning-textarea>
+                    <lightning-input type="text" label="Enter Company Website" placeholder="type here..."
+                        onchange={onhandlechange}></lightning-input>
+
+                </div>
+                <div class="slds-align_absolute-center" style="height:5rem">
+                    <lightning-button variant="brand" label="Submit" title="Primary action" class="slds-m-left_x-small"
+                        onclick={createcompany}></lightning-button>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+    <!-- Record create Form end -->
+
+    <!-- table start -->
+    <lightning-card title="Company List" icon-name="custom:custom95">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered table-cont">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Address</th>
+                    <th>email</th>
+                    <th>link</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={getallDetails.data} for:item="varItems">
+                    <tr key={varItems.Id}>
+                        <td> {varItems.Name}</td>
+                        <td>{varItems.Company_Location__c}</td>
+                        <td>{varItems.Company_Address__c}</td>
+                        <td>{varItems.Company_Email__c}</td>
+                        <td>{varItems.Company_Link__c}</td>
+                        <td>
+                            <lightning-button variant="brand" icon-name="utility:edit" icon-position="right"
+                                onclick={editRecord} value={varItems.Id}>
+                            </lightning-button>
+
+                            <lightning-button variant="destructive" icon-name="utility:delete" icon-position="right"
+                                onclick={deleteRecord} value={varItems.Id}>
+                            </lightning-button>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+    <!-- table end -->
+    <br><br>
+        
+    <!-- pagination start -->
+    <div class="slds-align_absolute-center">
+        <div class="slds-p-right_xx-small">
+
+            <lightning-button label="Prev" disabled={isPrev} onclick={handlePagePrevAction} variant="brand"
+                icon-name="utility:back" name="prev"></lightning-button>
+        </div>
+        <span class="slds-badge slds-badge_lightest">
+            {recordStart}-{recordEnd} of {totalRecords} | Page {pageNumber} of {totalPages}
+        </span>
+        <div class="slds-p-left_xx-small">
+            <lightning-button label="Next" disabled={isNext} onclick={handlePageNextAction} variant="brand"
+                icon-name="utility:forward" icon-position="right" name="next"></lightning-button>
+        </div>
+    </div>
+    <!-- pagination end -->
+
+
+    <!-- Edit start -->
+
+    <!-- Edit end -->
+
+
+</template>

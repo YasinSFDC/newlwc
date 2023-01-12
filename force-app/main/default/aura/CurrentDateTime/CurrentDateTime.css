@@ -1,0 +1,16 @@
+.THIS lightning-formatted-date-time{
+    color: brown;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    /* background-color: darkblue; */
+    margin: -100px 0px 0px 170px;
+}
+.THIS h2{
+    color: red;
+    font-size: 20px;
+    font-weight: 500;
+}
+.THIS slds-m-around_xx-large{
+    margin-top: -24px;
+}

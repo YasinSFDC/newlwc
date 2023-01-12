@@ -1,0 +1,15 @@
+<!-- parent component -->
+<template>
+    <lightning-card title="Augmentror" icon-name="icon:icon99">
+        <lightning-layout>
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <lightning-input label="Set starting counter" type="number" min="0" max="100000"
+                                 value="startCounter" onchange={handleStartChange}>
+                </lightning-input>
+                <lightning-button class="slds-var-p-vertical_xx-small" label="Add 1L to counter" onclick={handleMaximizeCounter}>
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+        <c-numerator class="slds-show slds-is-relative" counter={startCounter}></c-numerator>
+    </lightning-card>
+</template>

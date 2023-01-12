@@ -1,0 +1,11 @@
+.label_style label{
+    color: blue;
+    font-size: 18px;
+}
+
+td .table-cont{
+    text-transform: capitalize;
+    color: red;
+    float: right;
+    
+}

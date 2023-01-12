@@ -1,0 +1,49 @@
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes"
+    access="global">
+
+        <div class="bgclr">
+    <div class="slds-page-header" role="banner">
+        <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Account">
+
+            <div class="slds-text-heading_label">
+                <lightning:outputField fieldName="Name" variant="label-hidden" />
+            </div>
+            <lightning:messages />
+        </lightning:recordViewForm>
+        <h2 class="slds-page-header__title slds-m-right_small slds-truncate slds-align-left">Create new contact
+            <span>Using aura component</span>
+        </h2>
+        <p>Create contact related to parent account, For best, use Account record(Account Details) page</p>
+    </div>
+    <lightning:recordEditForm aura:id="myform" objectApiName="Contact" onsubmit="{!c.handleSubmit}"
+        onsuccess="{!c.handleSuccess}">
+        <lightning:messages />
+        <div class="slds-grid slds-wrap slds-text-align_center custom-container">
+            <div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+                <lightning:inputField fieldName="FirstName" />
+            </div>
+            <div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+                <lightning:inputField fieldName="LastName" />
+            </div>
+            <div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+            <lightning:inputField fieldName="Title" />
+            </div>
+            <div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+            <lightning:inputField fieldName="Phone" />
+            </div>
+            <div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+            <lightning:inputField fieldName="Email" />
+            </div>
+            <div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+            <lightning:inputField fieldName="Department" />
+            </div>
+        </div>
+        <div class="slds-m-top_medium">
+            <lightning:button label="Cancel" onclick="{!c.handleCancel}" />
+            <lightning:button type="submit" label="Save Contact" variant="brand" />
+        </div>
+    </lightning:recordEditForm>
+</div>
+
+</aura:component>

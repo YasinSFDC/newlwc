@@ -1,0 +1,92 @@
+<!-- Class name: lwcCustomModalHelper -->
+
+<template>
+
+    <lightning-card title="Display a Custom Popup/Modal In Salesforce Lightning Web Component -- LWC"
+        icon-name="custom:custom20">
+
+        <!-- lightning button for open custom modal window -->
+        <lightning-button variant="brand" label="Open Custom Modal Popup in LWC" title="Open Modal"
+            onclick={customShowModalPopup} class="slds-m-left_x-small"></lightning-button>
+
+        <!-- modal start -->
+        <template if:true={customFormModal}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- modal header start -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={customHideModalPopup}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 class="slds-text-heading_medium slds-hyphenate">Custom Modal Popup in LWC</h2>
+                        <p style="color:green; font: size 13px; font-weight:500">Submit Contact Info</p>
+                    </header>
+                    <!-- modal body start -->
+                    <lightning-card>
+                        <lightning-layout>
+                            <lightning-layout-item>
+                                <div class="slds-modal__content slds-p-around_medium">
+
+                                    <div class="slds-grid slds-wrap label_style">
+                                        <div
+                                            class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                            <lightning-input label="First Name" type="text"
+                                                onchange={onHandleSubmit}></lightning-input>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                            <lightning-input label="Last Name" type="text"
+                                                onchange={onHandleSubmit}></lightning-input>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                                <div class="slds-box slds-p-top_small">
+                                                    <lightning-record-edit-form object-api-name="Contact" id="createContactForm" >
+                                                        <lightning-input-field field-name="AccountId" variant="label-hidden" onchange={handleAccountSelection} required> </lightning-input-field>
+                                                    </lightning-record-edit-form>
+                                                </div>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                            <lightning-input label="Department" type="text"
+                                                onchange={onHandleSubmit}></lightning-input>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                            <lightning-input label="Email" type="onHandleSubmit"
+                                                onchange={onHandleSubmit}></lightning-input>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                            <lightning-input label="Phone" type="number"
+                                                onchange={onHandleSubmit}></lightning-input>
+                                        </div>
+                                    </div>
+                                    <!-- modal footer start-->
+                                    <footer class="slds-modal__footer">
+                                        <button class="slds-button slds-button--destructive"
+                                            onclick={customHideModalPopup}>Cancel</button>
+                                        <button class="slds-button slds-button_brand"
+                                            onclick={createContModal}>Save</button>
+                                    </footer>
+                                </div>
+
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-card>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open">
+            </div>
+        </template>
+        <!-- modal end -->
+
+        <br /> <br />
+
+    </lightning-card>
+</template>

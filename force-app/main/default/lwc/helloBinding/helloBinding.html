@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Hello Binding" icon-name="custom:custom87">
+        <div class="slds-p-around_medium label_style">
+            <p>Hello {greeting}</p>
+            <!-- if we are using onChange then each and evry word typing show -->
+            <!-- if we are using onblur then after completing the word its show ( onblur={handleChange})-->
+            <lightning-input
+            label="Name"
+            value={greeting}
+            onchange={handleChange}
+            ></lightning-input>
+        </div>
+    </lightning-card>
+</template>
